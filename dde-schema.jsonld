@@ -1,0 +1,1001 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "CREID": "https://discovery.biothings.io/view/CREID/"
+  },
+  "@graph": [
+    {
+      "@id": "CREID:Dataset",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Dataset schema for the Centers for Research in Emerging Infectious Disease (CREID) Network ",
+      "rdfs:label": "Dataset",
+      "rdfs:subClassOf": {
+        "@id": "niaid:Dataset"
+      },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "infectiousAgent": {
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset (e.g. SARS-CoV-2). Agents and pathogens not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "ncbitaxon"
+                  ],
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                    "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "ncbitaxon"
+                    ],
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                      "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
+          "healthCondition": {
+            "description": "The Infectious disease(s) / health condition(s) which are the focus of the dataset (e.g. COVID-19, pneumonia, etc.). Variables not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "mondo"
+                  ],
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/MONDO_0000001"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "mondo"
+                    ],
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/MONDO_0000001"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
+          "funding": {
+            "description": "",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "type": "object",
+                "@type": "MonetaryGrant",
+                "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution",
+                "properties": {
+                  "funder": {
+                    "description": "An organization associated with a creator or funder of a dataset",
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "@type": "Organization",
+                        "description": "Information about a single funder",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "An organization associated with a creator or funder of a dataset"
+                          },
+                          "parentOrganization": {
+                            "type": "string",
+                            "description": "name of the parent funding organization"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "An organization associated with a creator or funder of a dataset"
+                            },
+                            "parentOrganization": {
+                              "type": "string",
+                              "description": "name of the parent funding organization"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description about the funding award / grant"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "award / grant URL"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset"
+                  }
+                },
+                "required": [
+                  "funder",
+                  "identifier"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "@type": "MonetaryGrant",
+                  "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution",
+                  "properties": {
+                    "funder": {
+                      "description": "An organization associated with a creator or funder of a dataset",
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "An organization associated with a creator or funder of a dataset"
+                            },
+                            "parentOrganization": {
+                              "type": "string",
+                              "description": "name of the parent funding organization"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "@type": "Organization",
+                            "description": "Information about a single funder",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "An organization associated with a creator or funder of a dataset"
+                              },
+                              "parentOrganization": {
+                                "type": "string",
+                                "description": "name of the parent funding organization"
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "description about the funding award / grant"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "award / grant URL"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "description": "Unique identifier(s) for the grant(s) used to fund the Dataset"
+                    }
+                  },
+                  "required": [
+                    "funder",
+                    "identifier"
+                  ]
+                }
+              }
+            ]
+          },
+          "species": {
+            "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied. Species not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "ncbitaxon"
+                  ],
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/NCBITaxon_131567",
+                    "http://purl.obolibrary.org/obo/NCBITaxon_10239"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "ncbitaxon"
+                    ],
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/NCBITaxon_131567",
+                      "http://purl.obolibrary.org/obo/NCBITaxon_10239"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
+          "distribution": {
+            "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "A dataset in downloadable form.",
+                "@type": "DataDownload",
+                "type": "object",
+                "properties": {
+                  "dateModified": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "contentUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "dateModified",
+                  "contentUrl"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "A dataset in downloadable form.",
+                  "@type": "DataDownload",
+                  "type": "object",
+                  "properties": {
+                    "dateModified": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "contentUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "dateModified",
+                    "contentUrl"
+                  ]
+                }
+              }
+            ]
+          },
+          "measurementTechnique": {
+            "description": "A technique or technology used in a Dataset, corresponding to the method used for measuring the corresponding variable(s). Techniques and technologies not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "edam",
+                    "ncit"
+                  ],
+                  "children_of": [
+                    "http://edamontology.org/topic_3361",
+                    "http://purl.obolibrary.org/obo/NCIT_C20368"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "edam",
+                      "ncit"
+                    ],
+                    "children_of": [
+                      "http://edamontology.org/topic_3361",
+                      "http://purl.obolibrary.org/obo/NCIT_C20368"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
+          "citation": {
+            "description": "Journal article or other publication associated with the dataset (stored as an object, not a string)",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "A scholarly article in which the dataset is cited.",
+                "@type": "ScholarlyArticle",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "url"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "A scholarly article in which the dataset is cited.",
+                  "@type": "ScholarlyArticle",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "url"
+                  ]
+                }
+              }
+            ]
+          },
+          "creator": {
+            "description": "Name of the author or organization that created the dataset. Note: schema.org/creator and schema.org/organization have additional fields that can provide more information about the author/organization, if desired.",
+            "owl:cardinality": "many",
+            "anyOf": [
+              {
+                "description": "Reusable person definition",
+                "@type": "Person",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Reusable person definition",
+                  "@type": "Person",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              {
+                "description": "Reusable organization definition",
+                "@type": "Organization",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Reusable organization definition",
+                  "@type": "Organization",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ]
+          },
+          "isPartOf": {
+            "description": "Research consortia or collaborative groups that the dataset was produced as part of",
+            "oneOf": [
+              {
+                "@type": "Organization",
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "legalName": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "topic": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    ]
+                  },
+                  "type": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "description",
+                  "legalName",
+                  "name",
+                  "sameAs",
+                  "topic",
+                  "type"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "@type": "Organization",
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "legalName": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "sameAs": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "topic": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      ]
+                    },
+                    "type": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "description",
+                    "legalName",
+                    "name",
+                    "sameAs",
+                    "topic",
+                    "type"
+                  ]
+                }
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "license": {
+            "description": "A license document that applies to this content, typically indicated by URL.",
+            "type": "string",
+            "owl:cardinality": "one",
+            "format": "uri"
+          },
+          "sdPublisher": {
+            "description": "Original publisher of the Dataset metadata (like GenBank, ImmPort, etc.). Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The sdPublisher property helps make such practices more explicit.",
+            "owl:cardinality": "many",
+            "anyOf": [
+              {
+                "description": "Reusable person definition",
+                "@type": "Person",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Reusable person definition",
+                  "@type": "Person",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              {
+                "description": "Reusable organization definition",
+                "@type": "Organization",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Reusable organization definition",
+                  "@type": "Organization",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ]
+          },
+          "spatialCoverage": {
+            "description": "",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "Location information",
+                "@type": "AdministrativeArea",
+                "type": "object",
+                "properties": {
+                  "locationType": {
+                    "description": "Categorization of how the location relates to the dataset or computational tool",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "residence",
+                          "exposure",
+                          "collection",
+                          "screening",
+                          "treatment",
+                          "study location",
+                          "other",
+                          "unknown"
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "residence",
+                            "exposure",
+                            "collection",
+                            "screening",
+                            "treatment",
+                            "study location",
+                            "other",
+                            "unknown"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "administrativeType": {
+                    "description": "the type of administrative area",
+                    "type": "string",
+                    "enum": [
+                      "province",
+                      "district",
+                      "chiefdom",
+                      "village",
+                      "city",
+                      "country",
+                      "prefecture",
+                      "sub-prefecture",
+                      "clan",
+                      "Federal Capital Territory",
+                      "state",
+                      "Local Government Area",
+                      "ward"
+                    ]
+                  },
+                  "alternateName": {
+                    "description": "An alias for the location.",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    ]
+                  },
+                  "identifier": {
+                    "description": "An identifier for the location, preferably a Wikidata ID.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "The name of the item.",
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Location information",
+                  "@type": "AdministrativeArea",
+                  "type": "object",
+                  "properties": {
+                    "locationType": {
+                      "description": "Categorization of how the location relates to the dataset or computational tool",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "residence",
+                            "exposure",
+                            "collection",
+                            "screening",
+                            "treatment",
+                            "study location",
+                            "other",
+                            "unknown"
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "residence",
+                              "exposure",
+                              "collection",
+                              "screening",
+                              "treatment",
+                              "study location",
+                              "other",
+                              "unknown"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "administrativeType": {
+                      "description": "the type of administrative area",
+                      "type": "string",
+                      "enum": [
+                        "province",
+                        "district",
+                        "chiefdom",
+                        "village",
+                        "city",
+                        "country",
+                        "prefecture",
+                        "sub-prefecture",
+                        "clan",
+                        "Federal Capital Territory",
+                        "state",
+                        "Local Government Area",
+                        "ward"
+                      ]
+                    },
+                    "alternateName": {
+                      "description": "An alias for the location.",
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    },
+                    "identifier": {
+                      "description": "An identifier for the location, preferably a Wikidata ID.",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the item.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "temporalCoverage": {
+            "description": "",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "Temporal information",
+                "@type": "TemporalInterval",
+                "type": "object",
+                "properties": {
+                  "temporalType": {
+                    "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "exposure",
+                          "collection",
+                          "screening",
+                          "treatment",
+                          "study date",
+                          "other",
+                          "unknown"
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "exposure",
+                            "collection",
+                            "screening",
+                            "treatment",
+                            "study date",
+                            "other",
+                            "unknown"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "startDate": {
+                    "description": "A start date. ",
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "name": {
+                    "description": "String describing the temporal interval",
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "description": "An end date.",
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "duration": {
+                    "description": "A time interval in ISO 8601 duration format.",
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Temporal information",
+                  "@type": "TemporalInterval",
+                  "type": "object",
+                  "properties": {
+                    "temporalType": {
+                      "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "exposure",
+                            "collection",
+                            "screening",
+                            "treatment",
+                            "study date",
+                            "other",
+                            "unknown"
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "enum": [
+                              "exposure",
+                              "collection",
+                              "screening",
+                              "treatment",
+                              "study date",
+                              "other",
+                              "unknown"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "startDate": {
+                      "description": "A start date. ",
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "name": {
+                      "description": "String describing the temporal interval",
+                      "type": "string"
+                    },
+                    "endDate": {
+                      "description": "An end date.",
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "duration": {
+                      "description": "A time interval in ISO 8601 duration format.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "description": {
+            "description": "Longer description of what is contained in the dataset",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "identifier": {
+            "description": "Identifiers for the dataset (ideally less than 15 characters). These may be standardized identifiers used by the repository. For example, DataSet (GDS), Series (GSE) or Platform (GPL) accession numbers are used as identifiers by the Gene Expression Omnibus.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "name": {
+            "description": "Descriptive name of the dataset",
+            "owl:cardinality": "one",
+            "type": "string"
+          }
+        },
+        "required": [
+          "infectiousAgent",
+          "healthCondition",
+          "funding",
+          "species",
+          "distribution",
+          "measurementTechnique",
+          "creator",
+          "description",
+          "identifier",
+          "name"
+        ],
+        "recommended": [
+          "citation",
+          "isPartOf",
+          "license",
+          "spatialCoverage",
+          "temporalCoverage"
+        ],
+        "optional": [
+          "sdPublisher"
+        ]
+      },
+      "schemaVersion": [
+        "https://schema.org/docs/releases.html#v26.0"
+      ]
+    }
+  ]
+}
