@@ -650,7 +650,7 @@
             ]
           },
           "spatialCoverage": {
-            "description": "",
+            "description": "SpatialCoverage indicates the place(s) which are the focus of the content. For example with a Dataset, it indicates areas that the dataset describes, a dataset of New York weather would have spatialCoverage which was the place, the state of New York.",
             "owl:cardinality": "many",
             "oneOf": [
               {
