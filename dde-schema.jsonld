@@ -3,12 +3,12 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "CREID": "https://discovery.biothings.io/view/CREID/",
+    "creid": "https://discovery.biothings.io/view/creid/",
     "niaid": "https://discovery.biothings.io/view/niaid/"
   },
   "@graph": [
     {
-      "@id": "CREID:Dataset",
+      "@id": "creid:Dataset",
       "@type": "rdfs:Class",
       "rdfs:comment": "Dataset schema for the Centers for Research in Emerging Infectious Disease (CREID) Network",
       "rdfs:label": "Dataset",
