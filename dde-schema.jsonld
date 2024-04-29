@@ -920,7 +920,7 @@
             ]
           },
           "creid": {
-            "description": "reusable creid organization object",
+            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
             "@type": "Organization",
             "type": "object",
             "properties": {
