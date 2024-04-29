@@ -96,7 +96,7 @@
             ]
           },
           "funding": {
-            "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your CREID grant number and information in addition to other applicable funding sources. Parent organization can be listed as one of the ten, CREID researcher centers.",
+            "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your CREID grant number and information in addition to other applicable funding sources. Grant numbers will be used to identify CREID research as well as cross collaboration efforts. Example grant numbers are 1U01AI151810, 1U01AI151812, and 1U01AI151698. Each is associated with a different CREID RC. Parent organization can be listed as one of the ten, CREID researcher centers.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -158,7 +158,7 @@
                   },
                   "identifier": {
                     "type": "string",
-                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any CREID grant numbers"
+                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any CREID grant numbers. Example grant numbers are 1U01AI151810, 1U01AI151812, and 1U01AI151698. Each is associated with a different CREID RC."
                   }
                 },
                 "required": [
@@ -413,170 +413,28 @@
             "owl:cardinality": "many",
             "anyOf": [
               {
-                "description": "Reusable person definition",
-                "@type": "Person",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/definitions/person"
               },
               {
                 "type": "array",
                 "items": {
-                  "description": "Reusable person definition",
-                  "@type": "Person",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  "$ref": "#/definitions/person"
                 }
               },
               {
-                "description": "Reusable organization definition",
-                "@type": "Organization",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/definitions/organization"
               },
               {
                 "type": "array",
                 "items": {
-                  "description": "Reusable organization definition",
-                  "@type": "Organization",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  "$ref": "#/definitions/organization"
                 }
               }
             ]
           },
-          "isPartOf": {
-            "description": "Research consortia or collaborative groups that the dataset was produced as part of",
-            "oneOf": [
-              {
-                "@type": "Organization",
-                "type": "object",
-                "properties": {
-                  "description": {
-                    "type": "string"
-                  },
-                  "legalName": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "sameAs": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "topic": {
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    ]
-                  },
-                  "type": {
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "description",
-                  "legalName",
-                  "name",
-                  "sameAs",
-                  "topic",
-                  "type"
-                ]
-              },
-              {
-                "type": "array",
-                "items": {
-                  "@type": "Organization",
-                  "type": "object",
-                  "properties": {
-                    "description": {
-                      "type": "string"
-                    },
-                    "legalName": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "sameAs": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "topic": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "string",
-                          "format": "uri"
-                        }
-                      ]
-                    },
-                    "type": {
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "string",
-                          "format": "uri"
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "description",
-                    "legalName",
-                    "name",
-                    "sameAs",
-                    "topic",
-                    "type"
-                  ]
-                }
-              }
-            ],
+          "sourceOrganization": {
+            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
+            "$ref": "#/definitions/creid",
             "owl:cardinality": "many"
           },
           "license": {
@@ -590,61 +448,21 @@
             "owl:cardinality": "many",
             "anyOf": [
               {
-                "description": "Reusable person definition",
-                "@type": "Person",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/definitions/site"
               },
               {
                 "type": "array",
                 "items": {
-                  "description": "Reusable person definition",
-                  "@type": "Person",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  "$ref": "#/definitions/site"
                 }
               },
               {
-                "description": "Reusable organization definition",
-                "@type": "Organization",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/definitions/organization"
               },
               {
                 "type": "array",
                 "items": {
-                  "description": "Reusable organization definition",
-                  "@type": "Organization",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  "$ref": "#/definitions/organization"
                 }
               }
             ]
@@ -981,18 +799,144 @@
           "creator",
           "description",
           "identifier",
-          "name"
+          "name",
+          "sourceOrganization"
         ],
         "recommended": [
           "citation",
-          "isPartOf",
           "license",
           "spatialCoverage",
           "temporalCoverage"
         ],
         "optional": [
           "sdPublisher"
-        ]
+        ],
+        "definitions": {
+          "person": {
+            "description": "Reusable person definition",
+            "@type": "Person",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "identifier": {
+                "description": "An ORCID identifier if available",
+                "type": "string"
+              },
+              "affiliation": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
+                  }
+                ]
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "alternateName": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "organization": {
+            "description": "Reusable organization definition",
+            "@type": "Organization",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "the name of the organization",
+                "type": "string"
+              },
+              "alternateName": {
+                "description": "Other names by which the organization is referred (e.g. abbreviations like WHO for World Health Organization)",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/stumporganization"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/stumporganization"
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "stumporganization": {
+            "description": "Reusable organization definition",
+            "@type": "Organization",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "the name of the organization",
+                "type": "string"
+              },
+              "alternateName": {
+                "description": "Other names by which the organization is referred (e.g. abbreviations like WHO for World Health Organization)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "site": {
+            "description": "Reusable metadata source definition",
+            "@type": "CreativeWork",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "the name of the publisher, data catalog or website",
+                "type": "string"
+              },
+              "url": {
+                "description": "The url of the publisher, data catalog or website",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "creid": {
+            "description": "reusable creid organization object",
+            "@type": "Organization",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "the name of the organization",
+                "const": "NIAID CREID Network"
+              },
+              "alternateName": {
+                "description": "Other names by which the organization is referred (e.g. abbreviations like WHO for World Health Organization)",
+                "const": "CREID"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          }
       },
       "schemaVersion": [
         "https://schema.org/docs/releases.html#v26.0"
