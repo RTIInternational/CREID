@@ -19,8 +19,33 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "infectiousAgent": {
-            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset (e.g. SARS-CoV-2). Agents and pathogens not appearing in the list can be added manually. Selections will appear below the search list.",
+          "name": {
+            "description": "Descriptive name of the dataset",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "description": {
+            "description": "Longer description of what is contained in the dataset",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "identifier": {
+            "description": "Identifiers for the dataset (ideally less than 15 characters). These may be standardized identifiers used by the repository. For example, DataSet (GDS), Series (GSE) or Platform (GPL) accession numbers are used as identifiers by the Gene Expression Omnibus.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "measurementTechnique": {
+            "description": "A technique or technology used in a Dataset, corresponding to the method used for measuring the corresponding variable(s). Techniques and technologies not appearing in the list can be added manually. Selections will appear below the search list.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -29,11 +54,12 @@
                 "type": "string",
                 "vocabulary": {
                   "ontology": [
-                    "ncbitaxon"
+                    "edam",
+                    "ncit"
                   ],
                   "children_of": [
-                    "http://purl.obolibrary.org/obo/NCBITaxon_10239",
-                    "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                    "http://edamontology.org/topic_3361",
+                    "http://purl.obolibrary.org/obo/NCIT_C20368"
                   ]
                 },
                 "strict": false
@@ -46,11 +72,12 @@
                   "type": "string",
                   "vocabulary": {
                     "ontology": [
-                      "ncbitaxon"
+                      "edam",
+                      "ncit"
                     ],
                     "children_of": [
-                      "http://purl.obolibrary.org/obo/NCBITaxon_10239",
-                      "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                      "http://edamontology.org/topic_3361",
+                      "http://purl.obolibrary.org/obo/NCIT_C20368"
                     ]
                   },
                   "strict": false
@@ -58,39 +85,49 @@
               }
             ]
           },
-          "healthCondition": {
-            "description": "The Infectious disease(s) / health condition(s) which are the focus of the dataset (e.g. COVID-19, pneumonia, etc.). Variables not appearing in the list can be added manually. Selections will appear below the search list.",
+          "distribution": {
+            "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file.",
             "owl:cardinality": "many",
             "oneOf": [
               {
-                "description": "Collection of vocabulary terms defined in ontologies",
-                "@type": "DefinedTerm",
-                "type": "string",
-                "vocabulary": {
-                  "ontology": [
-                    "mondo"
-                  ],
-                  "children_of": [
-                    "http://purl.obolibrary.org/obo/MONDO_0000001"
-                  ]
+                "description": "A dataset in downloadable form.",
+                "@type": "DataDownload",
+                "type": "object",
+                "properties": {
+                  "dateModified": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "contentUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  }
                 },
-                "strict": false
+                "required": [
+                  "dateModified",
+                  "contentUrl"
+                ]
               },
               {
                 "type": "array",
                 "items": {
-                  "description": "Collection of vocabulary terms defined in ontologies",
-                  "@type": "DefinedTerm",
-                  "type": "string",
-                  "vocabulary": {
-                    "ontology": [
-                      "mondo"
-                    ],
-                    "children_of": [
-                      "http://purl.obolibrary.org/obo/MONDO_0000001"
-                    ]
+                  "description": "A dataset in downloadable form.",
+                  "@type": "DataDownload",
+                  "type": "object",
+                  "properties": {
+                    "dateModified": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "contentUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    }
                   },
-                  "strict": false
+                  "required": [
+                    "dateModified",
+                    "contentUrl"
+                  ]
                 }
               }
             ]
@@ -238,6 +275,82 @@
               }
             ]
           },
+          "infectiousAgent": {
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset (e.g. SARS-CoV-2). Agents and pathogens not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "Collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "ncbitaxon"
+                  ],
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                    "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "ncbitaxon"
+                    ],
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                      "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
+          "healthCondition": {
+            "description": "The Infectious disease(s) / health condition(s) which are the focus of the dataset (e.g. COVID-19, pneumonia, etc.). Variables not appearing in the list can be added manually. Selections will appear below the search list.",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "description": "Collection of vocabulary terms defined in ontologies",
+                "@type": "DefinedTerm",
+                "type": "string",
+                "vocabulary": {
+                  "ontology": [
+                    "mondo"
+                  ],
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/MONDO_0000001"
+                  ]
+                },
+                "strict": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "description": "Collection of vocabulary terms defined in ontologies",
+                  "@type": "DefinedTerm",
+                  "type": "string",
+                  "vocabulary": {
+                    "ontology": [
+                      "mondo"
+                    ],
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/MONDO_0000001"
+                    ]
+                  },
+                  "strict": false
+                }
+              }
+            ]
+          },
           "species": {
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied. Species not appearing in the list can be added manually. Selections will appear below the search list.",
             "owl:cardinality": "many",
@@ -270,94 +383,6 @@
                     "children_of": [
                       "http://purl.obolibrary.org/obo/NCBITaxon_131567",
                       "http://purl.obolibrary.org/obo/NCBITaxon_10239"
-                    ]
-                  },
-                  "strict": false
-                }
-              }
-            ]
-          },
-          "distribution": {
-            "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file.",
-            "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "description": "A dataset in downloadable form.",
-                "@type": "DataDownload",
-                "type": "object",
-                "properties": {
-                  "dateModified": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "contentUrl": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "dateModified",
-                  "contentUrl"
-                ]
-              },
-              {
-                "type": "array",
-                "items": {
-                  "description": "A dataset in downloadable form.",
-                  "@type": "DataDownload",
-                  "type": "object",
-                  "properties": {
-                    "dateModified": {
-                      "type": "string",
-                      "format": "date"
-                    },
-                    "contentUrl": {
-                      "type": "string",
-                      "format": "uri"
-                    }
-                  },
-                  "required": [
-                    "dateModified",
-                    "contentUrl"
-                  ]
-                }
-              }
-            ]
-          },
-          "measurementTechnique": {
-            "description": "A technique or technology used in a Dataset, corresponding to the method used for measuring the corresponding variable(s). Techniques and technologies not appearing in the list can be added manually. Selections will appear below the search list.",
-            "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "description": "Collection of vocabulary terms defined in ontologies",
-                "@type": "DefinedTerm",
-                "type": "string",
-                "vocabulary": {
-                  "ontology": [
-                    "edam",
-                    "ncit"
-                  ],
-                  "children_of": [
-                    "http://edamontology.org/topic_3361",
-                    "http://purl.obolibrary.org/obo/NCIT_C20368"
-                  ]
-                },
-                "strict": false
-              },
-              {
-                "type": "array",
-                "items": {
-                  "description": "Collection of vocabulary terms defined in ontologies",
-                  "@type": "DefinedTerm",
-                  "type": "string",
-                  "vocabulary": {
-                    "ontology": [
-                      "edam",
-                      "ncit"
-                    ],
-                    "children_of": [
-                      "http://edamontology.org/topic_3361",
-                      "http://purl.obolibrary.org/obo/NCIT_C20368"
                     ]
                   },
                   "strict": false
@@ -407,35 +432,6 @@
                 }
               }
             ]
-          },
-          "creator": {
-            "description": "Name of the author or organization that created the dataset. Note: schema.org/creator and schema.org/organization have additional fields that can provide more information about the author/organization, if desired.",
-            "owl:cardinality": "many",
-            "anyOf": [
-              {
-                "$ref": "#/definitions/person"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/person"
-                }
-              },
-              {
-                "$ref": "#/definitions/organization"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/organization"
-                }
-              }
-            ]
-          },
-          "sourceOrganization": {
-            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
-            "$ref": "#/definitions/creid",
-            "owl:cardinality": "many"
           },
           "license": {
             "description": "A license document that applies to this content, typically indicated by URL.",
@@ -763,43 +759,47 @@
               }
             ]
           },
-          "description": {
-            "description": "Longer description of what is contained in the dataset",
-            "owl:cardinality": "one",
-            "type": "string"
-          },
-          "identifier": {
-            "description": "Identifiers for the dataset (ideally less than 15 characters). These may be standardized identifiers used by the repository. For example, DataSet (GDS), Series (GSE) or Platform (GPL) accession numbers are used as identifiers by the Gene Expression Omnibus.",
+          "creator": {
+            "description": "Name of the author or organization that created the dataset. Note: schema.org/creator and schema.org/organization have additional fields that can provide more information about the author/organization, if desired.",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/definitions/person"
               },
               {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "$ref": "#/definitions/person"
+                }
+              },
+              {
+                "$ref": "#/definitions/organization"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
                 }
               }
             ]
           },
-          "name": {
-            "description": "Descriptive name of the dataset",
-            "owl:cardinality": "one",
-            "type": "string"
+          "sourceOrganization": {
+            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
+            "$ref": "#/definitions/creid",
+            "owl:cardinality": "many"
           }
         },
         "required": [
-          "infectiousAgent",
-          "healthCondition",
-          "funding",
-          "species",
-          "distribution",
-          "measurementTechnique",
-          "creator",
+          "name",
           "description",
           "identifier",
-          "name",
+          "measurementTechnique",
+          "distribution",
+          "funding",
+          "infectiousAgent",
+          "healthCondition",
+          "species",
+          "creator",
           "sourceOrganization"
         ],
         "recommended": [
