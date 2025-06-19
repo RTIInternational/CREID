@@ -3,14 +3,14 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "creid": "https://discovery.biothings.io/ns/creid/",
+    "revampp": "https://discovery.biothings.io/ns/revampp/",
     "niaid": "https://discovery.biothings.io/ns/niaid/"
   },
   "@graph": [
     {
-      "@id": "creid:Dataset",
+      "@id": "revampp:Dataset",
       "@type": "rdfs:Class",
-      "rdfs:comment": "Dataset schema for the Centers for Research in Emerging Infectious Disease (CREID) Network",
+      "rdfs:comment": "Dataset schema for the NIAID ReVAMPP Network",
       "rdfs:label": "Dataset",
       "rdfs:subClassOf": {
         "@id": "niaid:Dataset"
@@ -20,17 +20,17 @@
         "type": "object",
         "properties": {
           "name": {
-            "description": "Descriptive name of the dataset",
+            "description": "The name of the dataset.",
             "owl:cardinality": "one",
             "type": "string"
           },
           "description": {
-            "description": "Longer description of what is contained in the dataset",
+            "description": "A description of the dataset.",
             "owl:cardinality": "one",
             "type": "string"
           },
           "identifier": {
-            "description": "Identifiers for the dataset (ideally less than 15 characters). These may be standardized identifiers used by the repository. For example, DataSet (GDS), Series (GSE) or Platform (GPL) accession numbers are used as identifiers by the Gene Expression Omnibus.",
+            "description": "Identifiers for the dataset (ideally less than 15 characters). These may be standardized identifiers used by the repository. For example, DataSet (GDS), Series (GSE) or Platform (GPL) accession numbers are used as identifiers by the Gene Expression Omnibus. DOIs are also common identifiers.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -133,7 +133,7 @@
             ]
           },
           "funding": {
-            "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your CREID grant number and information in addition to other applicable funding sources. Grant numbers will be used to identify CREID research as well as cross collaboration efforts. Example grant numbers are 1U01AI151810, 1U01AI151812, and 1U01AI151698. Each is associated with a different CREID RC. Parent organization can be listed as one of the ten, CREID researcher centers.",
+            "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your ReVAMPP grant number and information in addition to other applicable funding sources. Grant numbers will be used to identify ReVAMPP research as well as cross collaboration efforts. Each of the following grant numbers is associated with a different ReVAMPP RC: U19AI181979 (BP4), U19AI181797 (CDSC), U19AI181960 (FLARE), U19AI181881 (MLvax), U19AI181930 (PABVAX), U19AI181977 (PROVIDENT), U19AI181984 (R2P2), U19AI181968 (VPPC). Parent organization can be listed as one of the seven ReVAMPP Researcher Centers.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -155,7 +155,7 @@
                           },
                           "parentOrganization": {
                             "type": "string",
-                            "description": "Name of the parent funding organization (one of the ten, CREID research centers)"
+                            "description": "Name of the parent funding organization (one of the ReVAMPP Network centers)"
                           }
                         },
                         "required": [
@@ -352,7 +352,7 @@
             ]
           },
           "species": {
-            "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied. Species not appearing in the list can be added manually. Selections will appear below the search list.",
+            "description": "Species from which the dataset has been collected or for which the tool was designed or applied. Species not appearing in the list can be added manually. Selections will appear below the search list.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -391,11 +391,11 @@
             ]
           },
           "citation": {
-            "description": "Journal article or other publication associated with the dataset (stored as an object, not a string)",
+            "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
             "owl:cardinality": "many",
             "oneOf": [
               {
-                "description": "A scholarly article in which the dataset is cited.",
+                "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
                 "@type": "ScholarlyArticle",
                 "type": "object",
                 "properties": {
@@ -414,7 +414,7 @@
               {
                 "type": "array",
                 "items": {
-                  "description": "A scholarly article in which the dataset is cited.",
+                  "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
                   "@type": "ScholarlyArticle",
                   "type": "object",
                   "properties": {
@@ -434,13 +434,13 @@
             ]
           },
           "license": {
-            "description": "A license document that applies to this content, typically indicated by URL.",
+            "description": "A license document that applies to this content, typically indicated by URL. For example, a Creative Commons license.",
             "type": "string",
             "owl:cardinality": "one",
             "format": "uri"
           },
           "sdPublisher": {
-            "description": "Original publisher of the Dataset metadata (like GenBank, ImmPort, etc.). Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The sdPublisher property helps make such practices more explicit.",
+            "description": "Original publisher of the Dataset metadata (i.e. GenBank, ImmPort, etc.). Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The sdPublisher property helps make such practices more explicit.",
             "owl:cardinality": "many",
             "anyOf": [
               {
@@ -464,7 +464,7 @@
             ]
           },
           "spatialCoverage": {
-            "description": "SpatialCoverage indicates the place(s) which are the focus of the content. For example with a Dataset, it indicates areas that the dataset describes, a dataset of New York weather would have spatialCoverage which was the place, the state of New York.",
+            "description": "The place(s) which are the focus of the content. For example with a Dataset, spatialCoverage indicates areas that the dataset describes. A dataset of New York weather would have spatialCoverage as state of New York.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -637,7 +637,7 @@
             ]
           },
           "temporalCoverage": {
-            "description": "Temporal information related to the dataset. For dates pertaining to the dataset record, use datePublished, dateCreated, dateModified, etc.",
+            "description": "Temporal information related to the dataset. For dates pertaining to the dataset record itself, use datePublished, dateCreated, dateModified, etc.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -784,8 +784,8 @@
             ]
           },
           "sourceOrganization": {
-            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
-            "$ref": "#/definitions/creid",
+            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
+            "$ref": "#/definitions/revampp",
             "owl:cardinality": "many"
           }
         },
@@ -800,16 +800,15 @@
           "healthCondition",
           "species",
           "creator",
+          "license",
           "sourceOrganization"
         ],
-        "recommended": [
+        "recommended": [],
+        "optional": [
           "citation",
-          "license",
+          "sdPublisher",
           "spatialCoverage",
           "temporalCoverage"
-        ],
-        "optional": [
-          "sdPublisher"
         ],
         "definitions": {
           "person": {
@@ -919,18 +918,18 @@
               "name"
             ]
           },
-          "creid": {
-            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID CREID Network' by default. ",
+          "revampp": {
+            "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
             "@type": "Organization",
             "type": "object",
             "properties": {
               "name": {
                 "description": "the name of the organization",
-                "const": "NIAID CREID Network"
+                "const": "NIAID ReVAMPP Network"
               },
               "alternateName": {
                 "description": "Other names by which the organization is referred (e.g. abbreviations like WHO for World Health Organization)",
-                "const": "CREID"
+                "const": "ReVAMPP"
               }
             },
             "required": [
