@@ -155,7 +155,7 @@
                           },
                           "parentOrganization": {
                             "type": "string",
-                            "description": "Name of the parent funding organization (one of the ReVAMPP Network centers)"
+                            "description": "Name of the parent funding organization (one of the ReVAMPP research centers)"
                           }
                         },
                         "required": [
@@ -195,7 +195,7 @@
                   },
                   "identifier": {
                     "type": "string",
-                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any CREID grant numbers. Example grant numbers are 1U01AI151810, 1U01AI151812, and 1U01AI151698. Each is associated with a different CREID RC."
+                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any ReVAMPP grant numbers. Example grant numbers are U19AI181979 (BP4), U19AI181797 (CDSC), U19AI181960 (FLARE), U19AI181881 (MLvax), U19AI181930 (PABVAX), U19AI181977 (PROVIDENT), U19AI181984 (R2P2), and U19AI181968 (VPPC)."
                   }
                 },
                 "required": [
@@ -224,7 +224,7 @@
                             },
                             "parentOrganization": {
                               "type": "string",
-                              "description": "Name of the parent funding organization (one of the ten, CREID research centers)"
+                              "description": "Name of the parent funding organization (one of the ReVAMPP research centers)"
                             }
                           },
                           "required": [
@@ -244,7 +244,7 @@
                               },
                               "parentOrganization": {
                                 "type": "string",
-                                "description": "Name of the parent funding organization (one of the ten, CREID research centers)"
+                                "description": "Name of the parent funding organization (one of the ReVAMPP research centers)"
                               }
                             },
                             "required": [
@@ -264,7 +264,7 @@
                     },
                     "identifier": {
                       "type": "string",
-                      "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any CREID grant numbers"
+                      "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any ReVAMPP grant numbers"
                     }
                   },
                   "required": [
