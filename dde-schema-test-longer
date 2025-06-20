@@ -48,7 +48,10 @@
                         "abstract": "date changed",
                         "format": "date",
                         "type": "string",
-                        "owl:cardinality": "one"
+                        "owl:cardinality": "one",
+                        "items": {
+                        "$ref": "#/definitions/date"
+                        }
                     },
                     "conditionsOfAccess": {
                         "description": "Conditions that affect the availability of, or method(s) of access to, the work. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished).",
