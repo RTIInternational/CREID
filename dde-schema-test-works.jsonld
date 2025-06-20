@@ -44,26 +44,6 @@
               }
             ]
           },
-          "variableMeasured": {
-            "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue.",
-            "oneOf": [
-              {
-                "description": "collection of vocabulary terms defined in ontologies",
-                "strict": false,
-                "type": "string",
-                "vocabulary": {
-                  "children_of": [
-                    "http://www.ebi.ac.uk/efo/EFO_0000001",
-                    "http://purl.obolibrary.org/obo/CMO_0000000",
-                    "http://purl.obolibrary.org/obo/NCIT_C25209"
-                  ],
-                  "ontology": [
-                    "efo",
-                    "cmo",
-                    "ncit"
-                  ]
-                }
-              },
           "measurementTechnique": {
             "description": "A technique or technology used in a Dataset, corresponding to the method used for measuring the corresponding variable(s). Techniques and technologies not appearing in the list can be added manually. Selections will appear below the search list.",
             "owl:cardinality": "many",
@@ -820,7 +800,6 @@
           "healthCondition",
           "species",
           "creator",
-          "variableMeasured",
           "license",
           "sourceOrganization"
         ],
