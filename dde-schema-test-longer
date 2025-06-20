@@ -975,6 +975,11 @@
                             "name"
                         ]
                     },
+                    "date": {
+                        "description": "date the metadata was harvested from the catalog",
+                        "type": "string",
+                        "format": "date"
+                    },
                     "revampp": {
                         "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
                         "@type": "Organization",
