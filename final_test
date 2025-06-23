@@ -370,8 +370,33 @@
                             }
                         ]
                     },
+                    "topicCategory": {
+                      "description": "Topic of the dataset (i.e. Infectious disease).",
+                      "abstract": "topic",
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/topic"
+                          }
+                        },
+                        {
+                          "$ref": "#/definitions/topic"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/definedterm"
+                          }
+                        },
+                        {
+                          "$ref": "#/definitions/definedterm"
+                        }
+                      ],
+                      "owl:cardinality": "many"
+                    },
                     "variableMeasured": {
-                      "description": "Variables measured within the dataset.",
+                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue.",
                       "oneOf": [
                         {
                           "description": "collection of vocabulary terms defined in ontologies",
@@ -890,6 +915,7 @@
                     "date",
                     "description",
                     "identifier",
+                    "topicCategory",
                     "measurementTechnique",
                     "dateCreated",
                     "dateModified",
