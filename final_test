@@ -1047,6 +1047,51 @@
                             "name"
                         ]
                     },
+                    "researchproject": {
+                      "@type": "ResearchProject",
+                      "description": "a type of organization definition",
+                      "properties": {
+                        "alternateName": {
+                          "description": "Alias of the name",
+                          "oneOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "name": {
+                          "description": "Name of the organization",
+                          "type": "string"
+                        },
+                        "parentOrganization": {
+                          "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                          "type": "string"
+                        },
+                        "email": {
+                          "description": "Email address of the organization",
+                          "type": "string"
+                        },
+                        "identifier": {
+                          "description": "Unique identifier of the organization",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "Link to the organization",
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": ["name"],
+                      "recommended": ["identifier", "url", "parentOrganization"],
+                      "optional": ["alternateName", "email", "role"],
+                      "type": "object"
+                    }, 
                     "date": {
                         "description": "date the metadata was harvested from the catalog",
                         "type": "string",
@@ -1123,6 +1168,69 @@
                         }
                       },
                       "required": []  
+                    },
+                    "catalog": {
+                      "@type": "DataCatalog",
+                      "description": "Data, resource or tool catalog",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "Data, resource or tool catalog name",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "Link to data, resource or tool catalog",
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "versionDate": {
+                          "description": "date the metadata was harvested from the catalog",
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "archivedAt": {
+                          "description": "The url(s) of one or more datasets, tools, resources or other items listed in a DataCatalog or ResourceCatalog",
+                          "oneOf": [
+                            {
+                              "items": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": "array"
+                            },
+                            {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          ]
+                        }
+                      },
+                      "required": ["name", "url"],
+                      "recommended": ["versionDate", "archivedAt"]
+                    },
+                    "softwareapplication": {
+                      "@type": "SoftwareApplication",
+                      "description": "Reusable software or algorithm definition",
+                      "properties": {
+                        "name": {
+                          "description": "name of the software, computational tool, or algorithm.",
+                          "type": "string"
+                        },
+                        "dateModified": {
+                          "description": "date the software, computational tool, or algorithm was run",
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "url": {
+                          "description": "url of the software, computational tool, or algorithm",
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": ["name"],
+                      "recommended": ["url"],
+                      "optional": ["dateModified"],
+                      "type": "object"
                     },
                     "revampp": {
                         "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
