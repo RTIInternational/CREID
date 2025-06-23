@@ -1052,6 +1052,24 @@
                         "type": "string",
                         "format": "date"
                     },
+                    "topic": {
+                      "description": "Topic assigned to the work.",
+                      "type": "string",
+                      "vocabulary": {
+                       "ontology": ["edam"],
+                       "children_of": ["http://edamontology.org/topic_0003"]
+                      },
+                      "strict": true
+                    },
+                    "definedterm": {
+                      "@type": "DefinedTerm",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "The name of the item.",
+                          "owl:cardinality": "one",
+                          "type": "string"
+                    },
                     "revampp": {
                         "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
                         "@type": "Organization",
