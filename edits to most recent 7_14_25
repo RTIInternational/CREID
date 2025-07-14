@@ -125,29 +125,29 @@
                         ]
                     },
                     "dateCreated": {
-                        "description": "The date on which the dataset was added to a respository.",
+                        "description": "The date on which the dataset was added to a respository",
                         "format": "date",
                         "type": "string",
                         "owl:cardinality": "one"
                     },
                     "dateModified": {
-                        "description": "The date on which the dataset was most recently modified within a repository.",
+                        "description": "The date on which the dataset was most recently modified within a repository",
                         "format": "date",
                         "type": "string",
                         "owl:cardinality": "one"
                     },
                     "datePublished": {
-                        "description": "Date the work was first published.",
+                        "description": "Date the work was first published",
                         "format": "date",
                         "type": "string",
                         "owl:cardinality": "one"
                     },
                     "distribution": {
-                        "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file.",
+                        "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file",
                         "owl:cardinality": "many",
                         "oneOf": [
                             {
-                                "description": "A dataset in downloadable form.",
+                                "description": "A dataset in downloadable form",
                                 "@type": "DataDownload",
                                 "type": "object",
                                 "properties": {
@@ -168,7 +168,7 @@
                             {
                                 "type": "array",
                                 "items": {
-                                    "description": "A dataset in downloadable form.",
+                                    "description": "A dataset in downloadable form",
                                     "@type": "DataDownload",
                                     "type": "object",
                                     "properties": {
@@ -252,7 +252,7 @@
                                     },
                                     "identifier": {
                                         "type": "string",
-                                        "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any ReVAMPP grant numbers. Example grant numbers are U19AI181979 (BP4), U19AI181797 (CDSC), U19AI181960 (FLARE), U19AI181881 (MLvax), U19AI181930 (PABVAX), U19AI181977 (PROVIDENT), U19AI181984 (R2P2), and U19AI181968 (VPPC)."
+                                        "description": "Unique identifier(s) for the grant(s) used to fund the Dataset, include any ReVAMPP grant numbers. Example grant numbers are AI181979 (BP4), AI181797 (CDSC), AI181960 (FLARE), AI181881 (MLvax), AI181930 (PABVAX), AI181977 (PROVIDENT), AI181984 (R2P2), and AI181968 (VPPC)."
                                     }
                                 },
                                 "required": [
