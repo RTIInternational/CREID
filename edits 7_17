@@ -112,7 +112,7 @@
                                         "ncit"
                                     ],
                                     "children_of": [
-					"http://purl.obolibrary.org/obo/ido.owl"
+					"http://purl.obolibrary.org/obo/ido.owl",
                                         "http://www.ebi.ac.uk/efo/EFO_0000001",
         				"http://purl.obolibrary.org/obo/CMO_0000000",
 					"http://edamontology.org/topic_3361",
