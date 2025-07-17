@@ -384,7 +384,7 @@
                         ]
                     },
                     "topicCategory": {
-                      "description": "Topic of the dataset (e.g. Infectious disease)",
+                      "description": "Topic of the dataset (e.g. Infectious disease). In order to search the list of linked controlled vocabularies, select the topicCategory box. Controlled terms that do not have an IRI can be added via the DefinedTerm box.",
                       "abstract": "topic",
                       "anyOf": [
                         {
@@ -409,7 +409,7 @@
                       "owl:cardinality": "many"
                     },
                     "variableMeasured": {
-                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue.",
+                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue. In order to search the list of linked controlled vocabularies, select the variableMeasured box. Controlled terms that do not have an IRI can be added via the DefinedTerm box",
                       "oneOf": [
                         {
                           "description": "collection of vocabulary terms defined in ontologies",
