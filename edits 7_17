@@ -46,6 +46,18 @@
                             }
                         ]
                     },
+                    "dateCreated": {
+                        "description": "The date on which the dataset was added to a respository",
+                        "format": "date",
+                        "type": "string",
+                        "owl:cardinality": "one"
+                    },
+                    "dateModified": {
+                        "description": "The date on which the dataset was most recently modified within a repository",
+                        "format": "date",
+                        "type": "string",
+                        "owl:cardinality": "one"
+                    },
                     "date": {
                         "description": "Date the dataset was last changed: most recent date of dateModified, datePublished, and dateCreated",
                         "abstract": "date changed",
@@ -123,18 +135,6 @@
                                 }
                             }
                         ]
-                    },
-                    "dateCreated": {
-                        "description": "The date on which the dataset was added to a respository",
-                        "format": "date",
-                        "type": "string",
-                        "owl:cardinality": "one"
-                    },
-                    "dateModified": {
-                        "description": "The date on which the dataset was most recently modified within a repository",
-                        "format": "date",
-                        "type": "string",
-                        "owl:cardinality": "one"
                     },
                     "datePublished": {
                         "description": "Date the work was first published",
