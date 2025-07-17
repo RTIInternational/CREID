@@ -129,10 +129,16 @@
                                     "type": "string",
                                     "vocabulary": {
                                         "ontology": [
-                                            "edam",
+                                            "ido",
+					    "efo",
+     				            "cmo",
+					    "edam",
                                             "ncit"
                                         ],
                                         "children_of": [
+				            "http://purl.obolibrary.org/obo/ido.owl"
+                                      	    "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				    "http://purl.obolibrary.org/obo/CMO_0000000",
                                             "http://edamontology.org/topic_3361",
                                             "http://purl.obolibrary.org/obo/NCIT_C20368"
                                         ]
@@ -410,10 +416,12 @@
                           "strict": false,
                           "type": "string",
                           "vocabulary": {
-                            "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
-                                            "http://purl.obolibrary.org/obo/CMO_0000000",
+                            "children_of": ["http://purl.obolibrary.org/obo/ido.owl"
+                                      	    "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				    "http://purl.obolibrary.org/obo/CMO_0000000",
+                                            "http://edamontology.org/topic_3361",
                                             "http://purl.obolibrary.org/obo/NCIT_C25209"],
-                            "ontology": ["efo", "cmo","ncit"]
+                            "ontology": ["ido", "efo", "cmo", "edam", "ncit"]
                           }
                         },
                         {
@@ -422,10 +430,12 @@
                             "strict": false,
                             "type": "string",
                             "vocabulary": {
-                              "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
-                                              "http://purl.obolibrary.org/obo/CMO_0000000",
+                              "children_of": ["http://purl.obolibrary.org/obo/ido.owl"
+                                      	      "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				      "http://purl.obolibrary.org/obo/CMO_0000000",
+                                              "http://edamontology.org/topic_3361",
                                               "http://purl.obolibrary.org/obo/NCIT_C25209"],
-                              "ontology": ["efo", "cmo","ncit"]
+                              "ontology": ["ido", "efo", "cmo", "edam", "ncit"]
                             }
                           },
                           "type": "array"
@@ -452,10 +462,12 @@
                                 "type": "string",
                                 "vocabulary": {
                                     "ontology": [
+					"ido",
                                         "mondo"
                                     ],
                                     "children_of": [
-                                        "http://purl.obolibrary.org/obo/MONDO_0000001"
+                                        "http://purl.obolibrary.org/obo/ido.owl",
+					"http://purl.obolibrary.org/obo/MONDO_0000001"
                                     ]
                                 },
                                 "strict": false
@@ -468,10 +480,12 @@
                                     "type": "string",
                                     "vocabulary": {
                                         "ontology": [
-                                            "mondo"
+                                            "ido",
+					    "mondo"
                                         ],
                                         "children_of": [
-                                            "http://purl.obolibrary.org/obo/MONDO_0000001"
+                                            "http://purl.obolibrary.org/obo/ido.owl",
+					    "http://purl.obolibrary.org/obo/MONDO_0000001"
                                         ]
                                     },
                                     "strict": false
