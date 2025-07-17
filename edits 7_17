@@ -105,11 +105,17 @@
                                 "type": "string",
                                 "vocabulary": {
                                     "ontology": [
-                                        "edam",
+                                	"ido",
+					"efo",
+     				        "cmo",
+					"edam",
                                         "ncit"
                                     ],
                                     "children_of": [
-                                        "http://edamontology.org/topic_3361",
+					"http://purl.obolibrary.org/obo/ido.owl"
+                                        "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				"http://purl.obolibrary.org/obo/CMO_0000000",
+					"http://edamontology.org/topic_3361",
                                         "http://purl.obolibrary.org/obo/NCIT_C20368"
                                     ]
                                 },
