@@ -1254,7 +1254,7 @@
                       "type": "object"
                     },
                     "revampp": {
-                        "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
+                        "description": "The Organization on whose behalf the creator was working. This will be the 'NIAID ReVAMPP Network' by default, but you will need to select accept.",
                         "@type": "Organization",
                         "type": "object",
                         "properties": {
