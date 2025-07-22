@@ -47,7 +47,7 @@
                         ]
                     },
                     "dateCreated": {
-                        "description": "The date on which the dataset was added to a respository",
+                        "description": "The date on which the dataset was added to a repository",
                         "format": "date",
                         "type": "string",
                         "owl:cardinality": "one"
@@ -202,7 +202,7 @@
                         ]
                     },
                     "funding": {
-                        "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your ReVAMPP grant number and information in addition to other applicable funding sources. Grant numbers will be used to identify ReVAMPP research as well as cross collaboration efforts. Each of the following grant numbers is associated with a different ReVAMPP RC: AI181979 (BP4), AI181797 (CDSC), AI181960 (FLARE), AI181881 (MLvax), AI181930 (PABVAX), AI181977 (PROVIDENT), AI181984 (R2P2), AI181968 (VPPC). Parent organization can be listed as one of the ReVAMPP Researcher Centers.",
+                        "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution. Please include your ReVAMPP grant number and information in addition to other applicable funding sources. Grant numbers will be used to identify ReVAMPP research as well as cross-collaboration efforts. Each of the following grant numbers is associated with a different ReVAMPP RC: AI181979 (BP4), AI181797 (CDSC), AI181960 (FLARE), AI181881 (MLvax), AI181930 (PABVAX), AI181977 (PROVIDENT), AI181984 (R2P2), AI181968 (VPPC). Parent organization can be listed as one of the ReVAMPP Researcher Centers.",
                         "owl:cardinality": "many",
                         "oneOf": [
                             {
@@ -384,7 +384,7 @@
                         ]
                     },
                     "topicCategory": {
-                      "description": "Topic of the dataset (e.g. Infectious disease). In order to search the list of linked controlled vocabularies, select the topicCategory box. Controlled terms that do not have an IRI can be added via the DefinedTerm box.",
+                      "description": "Topic of the dataset (e.g. Infectious disease). To search the list of linked controlled vocabularies, select the topicCategory box. Controlled terms that do not have an IRI can be added via the DefinedTerm box.",
                       "abstract": "topic",
                       "anyOf": [
                         {
@@ -409,7 +409,7 @@
                       "owl:cardinality": "many"
                     },
                     "variableMeasured": {
-                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue. In order to search the list of linked controlled vocabularies, select the variableMeasured box. Controlled terms that do not have an IRI can be added via the DefinedTerm box",
+                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue. To search the list of linked controlled vocabularies, select the variableMeasured box. Controlled terms that do not have an IRI can be added via the DefinedTerm box",
                       "oneOf": [
                         {
                           "description": "collection of vocabulary terms defined in ontologies",
@@ -606,7 +606,7 @@
                         ]
                     },
                     "spatialCoverage": {
-                        "description": "The place(s) which are the focus of the content. For example with a Dataset, spatialCoverage indicates areas that the dataset describes. A dataset of New York weather would have spatialCoverage as state of New York.",
+                        "description": "The place(s) which are the focus of the content. With a dataset, spatialCoverage indicates areas that the dataset describes. A dataset of New York weather would have spatialCoverage as state of New York.",
                         "owl:cardinality": "many",
                         "oneOf": [
                             {
