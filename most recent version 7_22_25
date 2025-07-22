@@ -46,6 +46,18 @@
                             }
                         ]
                     },
+                    "dateCreated": {
+                        "description": "The date on which the dataset was added to a respository",
+                        "format": "date",
+                        "type": "string",
+                        "owl:cardinality": "one"
+                    },
+                    "dateModified": {
+                        "description": "The date on which the dataset was most recently modified within a repository",
+                        "format": "date",
+                        "type": "string",
+                        "owl:cardinality": "one"
+                    },
                     "date": {
                         "description": "Date the dataset was last changed: most recent date of dateModified, datePublished, and dateCreated",
                         "abstract": "date changed",
@@ -93,11 +105,17 @@
                                 "type": "string",
                                 "vocabulary": {
                                     "ontology": [
-                                        "edam",
+                                	"ido",
+					"efo",
+     				        "cmo",
+					"edam",
                                         "ncit"
                                     ],
                                     "children_of": [
-                                        "http://edamontology.org/topic_3361",
+					"http://purl.obolibrary.org/obo/ido.owl",
+                                        "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				"http://purl.obolibrary.org/obo/CMO_0000000",
+					"http://edamontology.org/topic_3361",
                                         "http://purl.obolibrary.org/obo/NCIT_C20368"
                                     ]
                                 },
@@ -111,10 +129,16 @@
                                     "type": "string",
                                     "vocabulary": {
                                         "ontology": [
-                                            "edam",
+                                            "ido",
+					    "efo",
+     				            "cmo",
+					    "edam",
                                             "ncit"
                                         ],
                                         "children_of": [
+				            "http://purl.obolibrary.org/obo/ido.owl",
+                                      	    "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				    "http://purl.obolibrary.org/obo/CMO_0000000",
                                             "http://edamontology.org/topic_3361",
                                             "http://purl.obolibrary.org/obo/NCIT_C20368"
                                         ]
@@ -123,18 +147,6 @@
                                 }
                             }
                         ]
-                    },
-                    "dateCreated": {
-                        "description": "The date on which the dataset was added to a respository",
-                        "format": "date",
-                        "type": "string",
-                        "owl:cardinality": "one"
-                    },
-                    "dateModified": {
-                        "description": "The date on which the dataset was most recently modified within a repository",
-                        "format": "date",
-                        "type": "string",
-                        "owl:cardinality": "one"
                     },
                     "datePublished": {
                         "description": "Date the work was first published",
@@ -372,7 +384,7 @@
                         ]
                     },
                     "topicCategory": {
-                      "description": "Topic of the dataset (e.g. Infectious disease)",
+                      "description": "Topic of the dataset (e.g. Infectious disease). In order to search the list of linked controlled vocabularies, select the topicCategory box. Controlled terms that do not have an IRI can be added via the DefinedTerm box.",
                       "abstract": "topic",
                       "anyOf": [
                         {
@@ -397,17 +409,19 @@
                       "owl:cardinality": "many"
                     },
                     "variableMeasured": {
-                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue.",
+                      "description": "The variables that are measured in some dataset (repeated as necessary), either described as text or as pairs of identifier and description using PropertyValue. In order to search the list of linked controlled vocabularies, select the variableMeasured box. Controlled terms that do not have an IRI can be added via the DefinedTerm box",
                       "oneOf": [
                         {
                           "description": "collection of vocabulary terms defined in ontologies",
                           "strict": false,
                           "type": "string",
                           "vocabulary": {
-                            "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
-                                            "http://purl.obolibrary.org/obo/CMO_0000000",
+                            "children_of": ["http://purl.obolibrary.org/obo/ido.owl",
+                                      	    "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				    "http://purl.obolibrary.org/obo/CMO_0000000",
+                                            "http://edamontology.org/topic_3361",
                                             "http://purl.obolibrary.org/obo/NCIT_C25209"],
-                            "ontology": ["efo", "cmo","ncit"]
+                            "ontology": ["ido", "efo", "cmo", "edam", "ncit"]
                           }
                         },
                         {
@@ -416,10 +430,12 @@
                             "strict": false,
                             "type": "string",
                             "vocabulary": {
-                              "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
-                                              "http://purl.obolibrary.org/obo/CMO_0000000",
+                              "children_of": ["http://purl.obolibrary.org/obo/ido.owl",
+                                      	      "http://www.ebi.ac.uk/efo/EFO_0000001",
+        				      "http://purl.obolibrary.org/obo/CMO_0000000",
+                                              "http://edamontology.org/topic_3361",
                                               "http://purl.obolibrary.org/obo/NCIT_C25209"],
-                              "ontology": ["efo", "cmo","ncit"]
+                              "ontology": ["ido", "efo", "cmo", "edam", "ncit"]
                             }
                           },
                           "type": "array"
@@ -446,10 +462,12 @@
                                 "type": "string",
                                 "vocabulary": {
                                     "ontology": [
+					"ido",
                                         "mondo"
                                     ],
                                     "children_of": [
-                                        "http://purl.obolibrary.org/obo/MONDO_0000001"
+                                        "http://purl.obolibrary.org/obo/ido.owl",
+					"http://purl.obolibrary.org/obo/MONDO_0000001"
                                     ]
                                 },
                                 "strict": false
@@ -462,10 +480,12 @@
                                     "type": "string",
                                     "vocabulary": {
                                         "ontology": [
-                                            "mondo"
+                                            "ido",
+					    "mondo"
                                         ],
                                         "children_of": [
-                                            "http://purl.obolibrary.org/obo/MONDO_0000001"
+                                            "http://purl.obolibrary.org/obo/ido.owl",
+					    "http://purl.obolibrary.org/obo/MONDO_0000001"
                                         ]
                                     },
                                     "strict": false
@@ -906,7 +926,7 @@
                         ]
                     },
                     "sourceOrganization": {
-                        "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
+                        "description": "The Organization on whose behalf the creator was working. This will be the 'NIAID ReVAMPP Network' by default, but you will need to select accept.",
                         "$ref": "#/definitions/revampp",
                         "owl:cardinality": "many"
                     }
@@ -1234,7 +1254,7 @@
                       "type": "object"
                     },
                     "revampp": {
-                        "description": "The Organization on whose behalf the creator was working. No action needed, this will be the 'NIAID ReVAMPP Network' by default.",
+                        "description": "The Organization on whose behalf the creator was working. This will be the 'NIAID ReVAMPP Network' by default, but you will need to select accept.",
                         "@type": "Organization",
                         "type": "object",
                         "properties": {
